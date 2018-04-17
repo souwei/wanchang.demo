@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Given name:</strong>
+  <%= @patient.given_name %>
+</p>
+
+<p>
+  <strong>Surname:</strong>
+  <%= @patient.surname %>
+</p>
+
+<p>
+  <strong>Date of birth:</strong>
+  <%= @patient.date_of_birth %>
+</p>
+
+<p>
+  <strong>Place of birth:</strong>
+  <%= @patient.place_of_birth %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @patient.gender %>
+</p>
+
+<p>
+  <strong>Occupation:</strong>
+  <%= @patient.occupation %>
+</p>
+
+<p>
+  <strong>Contact number:</strong>
+  <%= @patient.contact_number %>
+</p>
+
+<p>
+  <strong>Emergency contact name:</strong>
+  <%= @patient.emergency_contact_name %>
+</p>
+
+<p>
+  <strong>Emergency contact number:</strong>
+  <%= @patient.emergency_contact_number %>
+</p>
+
+<p>
+  <strong>Home address:</strong>
+  <%= @patient.home_address %>
+</p>
+
+<p>
+  <strong>Present complaint:</strong>
+  <%= @patient.present_complaint %>
+</p>
+
+<p>
+  <strong>Past history:</strong>
+  <%= @patient.past_history %>
+</p>
+
+<p>
+  <strong>Current medication:</strong>
+  <%= @patient.current_medication %>
+</p>
+
+<p>
+  <strong>Family history:</strong>
+  <%= @patient.family_history %>
+</p>
+
+<p>
+  <strong>Smoking history:</strong>
+  <%= @patient.smoking_history %>
+</p>
+
+<p>
+  <strong>Allergies:</strong>
+  <%= @patient.allergies %>
+</p>
+
+<%= link_to 'Edit', edit_patient_path(@patient) %> |
+<%= link_to 'Back', patients_path %>

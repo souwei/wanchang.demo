@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  visit_date: 2018-04-17
+  tongue_examination: MyText
+  pulse_examination: MyText
+  herbal_course: MyText
+  acupuncture_course: MyText
+  diagnosis: MyText
+  notes: MyText
+
+two:
+  visit_date: 2018-04-17
+  tongue_examination: MyText
+  pulse_examination: MyText
+  herbal_course: MyText
+  acupuncture_course: MyText
+  diagnosis: MyText
+  notes: MyText
