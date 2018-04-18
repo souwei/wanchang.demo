@@ -1,8 +1,14 @@
+<% content_for :head do %>
+     <link rel="stylesheet" href="/assets/stylesheets/patients.scss">
+<% end %>
+
 <%= form_with(model: patient, local: true) do |form| %>
   <% if patient.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
       <h2><%= pluralize(patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
-
       <ul>
       <% patient.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,88 +16,50 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :given_name %>
-    <%= form.text_field :given_name, id: :patient_given_name %>
+  <%= simple_form_for(@patient, html: { class: 'form-inline' })do |f| %>
+  <div class="panel panel-default">
+  <div class="panel-heading form-divider">Personal Details</div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6"> <%= f.input :given_name %> </div>
+      <div class="col-md-6"> <%= f.input :surname %> </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6"> <%= f.input :date_of_birth,
+                                         :as => :string,
+                                         :placeholder => "YYYY-MM-DD" %>
+      </div>
+      <div class="col-md-6"> <%= f.input :place_of_birth %> </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6"> <%= f.input :gender,
+                                         :collection => ["Male","Female","Unspecified"] %> </div>
+      <div class="col-md-6"> <%= f.input :occupation %> </div>
+    </div>
+  </div>
+  <div class="panel-heading form-divider">Contact Details</div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6"> <%= f.input :home_address %> </div>
+      <div class="col-md-6"> <%= f.input :contact_number %> </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6"> <%= f.input :emergency_contact_name %> </div>
+      <div class="col-md-6"> <%= f.input :emergency_contact_number %> </div>
+    </div>
+  </div>
+  <div class="panel-heading form-divider">Medical Condition</div>
+  <div class="panel-body">
+    <%= f.input :present_complaint %>
+    <%= f.input :past_history %>
+    <%= f.input :current_medication %>
+    <%= f.input :family_history %>
+    <%= f.input :smoking_history %>
+    <%= f.input :allergies %>
+  </div>
   </div>
 
-  <div class="field">
-    <%= form.label :surname %>
-    <%= form.text_field :surname, id: :patient_surname %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date_of_birth %>
-    <%= form.date_select :date_of_birth, id: :patient_date_of_birth %>
-  </div>
-
-  <div class="field">
-    <%= form.label :place_of_birth %>
-    <%= form.text_field :place_of_birth, id: :patient_place_of_birth %>
-  </div>
-
-  <div class="field">
-    <%= form.label :gender %>
-    <%= form.text_field :gender, id: :patient_gender %>
-  </div>
-
-  <div class="field">
-    <%= form.label :occupation %>
-    <%= form.text_field :occupation, id: :patient_occupation %>
-  </div>
-
-  <div class="field">
-    <%= form.label :contact_number %>
-    <%= form.text_field :contact_number, id: :patient_contact_number %>
-  </div>
-
-  <div class="field">
-    <%= form.label :emergency_contact_name %>
-    <%= form.text_field :emergency_contact_name, id: :patient_emergency_contact_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :emergency_contact_number %>
-    <%= form.text_field :emergency_contact_number, id: :patient_emergency_contact_number %>
-  </div>
-
-  <div class="field">
-    <%= form.label :home_address %>
-    <%= form.text_area :home_address, id: :patient_home_address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :present_complaint %>
-    <%= form.text_area :present_complaint, id: :patient_present_complaint %>
-  </div>
-
-  <div class="field">
-    <%= form.label :past_history %>
-    <%= form.text_area :past_history, id: :patient_past_history %>
-  </div>
-
-  <div class="field">
-    <%= form.label :current_medication %>
-    <%= form.text_field :current_medication, id: :patient_current_medication %>
-  </div>
-
-  <div class="field">
-    <%= form.label :family_history %>
-    <%= form.text_field :family_history, id: :patient_family_history %>
-  </div>
-
-  <div class="field">
-    <%= form.label :smoking_history %>
-    <%= form.text_field :smoking_history, id: :patient_smoking_history %>
-  </div>
-
-  <div class="field">
-    <%= form.label :allergies %>
-    <%= form.text_field :allergies, id: :patient_allergies %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= f.button :submit, class: 'btn btn-primary' %>
 <% end %>
+
+  <% end %>

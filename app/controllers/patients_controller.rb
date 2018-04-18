@@ -4,7 +4,8 @@ class PatientsController < ApplicationController
   # GET /patients
   # GET /patients.json
   def index
-    @patients = Patient.all
+    #@patients = Patient.all
+    @patients = Kaminari.paginate_array(Patient.all).page(params[:page]).per(12)
   end
 
   # GET /patients/1

@@ -13,3 +13,13 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ .form-divider {
+   background-color: #343a40!important;
+   border-color: #343a40!important;
+   color: white!important;
+ }
+
+ .invalid-feedback{
+   color: red!important;
+ }
