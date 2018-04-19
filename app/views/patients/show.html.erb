@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h2>Patient Data</h2>
-<ul class="nav nav-tabs" id="myTab" role="tablist">
+<ul class="nav nav-tabs col-md-10" id="myTab" role="tablist">
   <li class="nav-item active">
     <a class="nav-link active" id="info-tab" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="true">Patient Information</a>
   </li>
@@ -10,104 +10,113 @@
   <li class="nav-item">
     <a class="nav-link" id="appt-tab" data-toggle="tab" href="#appt" role="tab" aria-controls="appt" aria-selected="false">New Appointment</a>
   </li>
-  <%= link_to 'Edit Patient Detail', edit_patient_path(@patient) , class: "btn btn-default pull-right"%>
 </ul>
-
 <br>
 <div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade active in" id="info" role="tabpanel" aria-labelledby="home-tab">
-    <form>
-      <div class="panel-heading form-divider">Personal Details</div>
-      <div class="panel-body">
-      <div class="form-group row form-control-plaintext">
-        <label for="given-name" class="col-md-3 col-form-label">Given Name</label>
-        <div class="col-md-3">
-          <input type="text" readonly class="form-control" value="<%= @patient.given_name %>">
-        </div>
-        <label for="surname" class="col-md-3 col-form-label">Surname</label>
-        <div class="col-md-3">
-          <input type="text" readonly class="form-control" value=" <%= @patient.surname %>">
+  <div class="tab-pane fade active in show" id="info" role="tabpanel" aria-labelledby="home-tab">
+    <form class="col-md-12">
+      <div class="card">
+        <div class="card-header form-divider">Personal Details</div>
+          <div class="card-body">
+            <div class="form-group row form-control-plaintext">
+              <div class="form-group row mx-auto">
+                <div class="col-sm-6">
+                  <label for="given-name">Given Name</label>
+                  <input type="text" readonly class="form-control" value="<%= @patient.given_name %>">
+                </div>
+                <div class="col-sm-6">
+                  <label for="surname">Surname</label>
+                  <input type="text" readonly class="form-control" value=" <%= @patient.surname %>">
+                </div>
+              </div>
+              <div class="form-group row mx-auto">
+                <div class="col-sm-6">
+                  <label for="date-of-birth">Date of Birth</label>
+                  <input type="text" readonly class="form-control" value="  <%= @patient.date_of_birth %>">
+                </div>
+              <div class="col-sm-6">
+                <label for="place-of-birth">Place of Birth</label>
+                <input type="text" readonly class="form-control" value="<%= @patient.place_of_birth %>">
+              </div>
+            </div>
+            <div class="form-group row mx-auto">
+              <div class="col-sm-6">
+                <label for="gender">Gender</label>
+                <input type="text" readonly class="form-control" value="<%= @patient.gender %>">
+              </div>
+              <div class="col-sm-6">
+                <label for="occupation">Occupation</label>
+                <input type="text" readonly class="form-control" value="<%= @patient.occupation %>">
+              </div>
+            </div>
         </div>
       </div>
-      <div class="form-group row form-control-plaintext">
-        <label for="date-of-birth" class="col-md-3 col-form-label">Date of Birth</label>
-        <div class="col-md-3">
-          <input type="text" readonly class="form-control" value="  <%= @patient.date_of_birth %>">
-        </div>
-        <label for="place-of-birth" class="col-md-3 col-form-label">Place of Birth</label>
-        <div class="col-md-3">
-          <input type="text" readonly class="form-control" value="<%= @patient.place_of_birth %>">
+      <div class="card-header form-divider">Contact Details</div>
+      <div class="card-body">
+        <div class="form-group row form-control-plaintext">
+          <div class="form-group row mx-auto">
+            <div class="col-sm-6">
+              <label for="home-address">Home Address</label>
+              <input type="text" readonly class="form-control" value="  <%= @patient.home_address %>">
+            </div>
+            <div class="col-sm-6">
+              <label for="contact-number">Contact Number</label>
+              <input type="text" readonly class="form-control" value="<%= @patient.contact_number %>">
+            </div>
+          </div>
+          <div class="form-group row mx-auto">
+            <div class="col-sm-6">
+              <label for="emergency-contact-name">Emergency Contact Name</label>
+              <input type="text" readonly class="form-control" value="  <%= @patient.emergency_contact_name %>">
+            </div>
+            <div class="col-sm-6">
+              <label for="emergency-contact-number">Emergency Contact Number</label>
+              <input type="text" readonly class="form-control" value="<%= @patient.emergency_contact_number %>">
+            </div>
+          </div>
         </div>
       </div>
-      <div class="form-group row form-control-plaintext">
-        <label for="gender" class="col-md-3 col-form-label">Gender</label>
-        <div class="col-md-3">
-          <input type="text" readonly class="form-control" value="  <%= @patient.gender %>">
-        </div>
-        <label for="occupation" class="col-md-3 col-form-label">Occupation</label>
-        <div class="col-md-3">
-          <input type="text" readonly class="form-control" value="<%= @patient.occupation %>">
-        </div>
+
+      <div class="card-header form-divider">Medical Condition</div>
+      <div class="card-body">
+        <div class="form-group row form-control-plaintext">
+          <div class="form-group row mx-auto">
+            <div class="col-sm-6">
+              <label for="present-complaint">Present Complaint</label>
+              <input type="text" readonly class="form-control" value="  <%= @patient.present_complaint %>">
+            </div>
+            <div class="col-sm-6">
+              <label for="past-history">Past History</label>
+              <input type="text" readonly class="form-control" value="<%= @patient.past_history %>">
+            </div>
+          </div>
+          <div class="form-group row mx-auto">
+            <div class="col-sm-6">
+              <label for="current-medication">Current Medication</label>
+              <input type="text" readonly class="form-control" value="  <%= @patient.current_medication %>">
+            </div>
+            <div class="col-sm-6">
+              <label for="family-history">Family History</label>
+              <input type="text" readonly class="form-control" value="<%= @patient.family_history %>">
+            </div>
+          </div>
+          <div class="form-group row mx-auto">
+            <div class="col-sm-6">
+              <label for="smoking-history">Smoking History</label>
+              <input type="text" readonly class="form-control" value="  <%= @patient.smoking_history %>">
+            </div>
+            <div class="col-sm-6">
+              <label for="allergies">Allergies</label>
+              <input type="text" readonly class="form-control" value="<%= @patient.allergies %>">
+            </div>
+          </div>
       </div>
+      <%= link_to 'Edit Patient Detail', edit_patient_path(@patient) , class: "btn btn-secondary"%>
     </div>
-    <div class="panel-heading form-divider">Contact Details</div>
-    <div class="panel-body">
-      <div class="form-group row form-control-plaintext">
-        <label for="home-address" class="col-md-3 col-form-label">Home Address</label>
-        <div class="col-md-3">
-          <input type="text" readonly class="form-control" value="  <%= @patient.home_address %>">
-        </div>
-        <label for="contact-number" class="col-md-3 col-form-label">Contact Number</label>
-        <div class="col-md-3">
-          <input type="text" readonly class="form-control" value="<%= @patient.contact_number %>">
-        </div>
-      </div>
-      <div class="form-group row form-control-plaintext">
-        <label for="emergency-contact-name" class="col-md-3 col-form-label">Emergency Contact Name</label>
-        <div class="col-md-3">
-          <input type="text" readonly class="form-control" value="  <%= @patient.emergency_contact_name %>">
-        </div>
-        <label for="emergency-contact-number" class="col-md-3 col-form-label">Emergency Contact Number</label>
-        <div class="col-md-3">
-          <input type="text" readonly class="form-control" value="<%= @patient.emergency_contact_number %>">
-        </div>
-      </div>
-    </div>
-    <div class="panel-heading form-divider">Medical Condition</div>
-    <div class="panel-body">
-      <div class="form-group row form-control-plaintext">
-        <label for="present-complaint" class="col-md-3 col-form-label">Present Complaint</label>
-        <div class="col-md-3">
-          <input type="text" readonly class="form-control" value="  <%= @patient.present_complaint %>">
-        </div>
-        <label for="past-history" class="col-md-3 col-form-label">Past History</label>
-        <div class="col-md-3">
-          <input type="text" readonly class="form-control" value="<%= @patient.past_history %>">
-        </div>
-      </div>
-      <div class="form-group row form-control-plaintext">
-        <label for="current-medication" class="col-md-3 col-form-label">Current Medication</label>
-        <div class="col-md-3">
-          <input type="text" readonly class="form-control" value="  <%= @patient.current_medication %>">
-        </div>
-        <label for="family-history" class="col-md-3 col-form-label">Family History</label>
-        <div class="col-md-3">
-          <input type="text" readonly class="form-control" value="<%= @patient.family_history %>">
-        </div>
-      </div>
-      <div class="form-group row form-control-plaintext">
-        <label for="smoking-history" class="col-md-3 col-form-label">Smoking History</label>
-        <div class="col-md-3">
-          <input type="text" readonly class="form-control" value="  <%= @patient.smoking_history %>">
-        </div>
-        <label for="allergies" class="col-md-3 col-form-label">Allergies</label>
-        <div class="col-md-3">
-          <input type="text" readonly class="form-control" value="<%= @patient.allergies %>">
-        </div>
-      </div>
     </div>
     </form>
   </div>
+
 
   <div class="tab-pane" id="visit" role="tabpanel" aria-labelledby="visit-tab">
     Visits
@@ -131,10 +140,10 @@
 
 
   <div class="tab-pane" id="appt" role="tabpanel" aria-labelledby="appt-tab">
-    <%= simple_form_for(@patient_note)do |f| %>
-      <div class="panel panel-default">
-        <div class="panel-heading form-divider">Appointment Information</div>
-        <div class="panel-body">
+    <%= simple_form_for(@patient_note, :html => { class: "col-md-12"})do |f| %>
+      <div class="card">
+        <div class="card-header form-divider">Appointment Information</div>
+        <div class="card-body">
           <div class="row">
             <div class="col-md-2">
                 <%= f.input :visit_date , :as => :string , :input_html => { :value => Date.today }%>
@@ -148,6 +157,7 @@
         </div>
       </div>
     <% end %>
+  </div>
   </div>
 </div>
 
