@@ -12,7 +12,7 @@ class PatientsController < ApplicationController
   # GET /patients/1.json
   def show
     @patient_visits = @patient.patient_notes.all
-    @patient_note = PatientNote.new
+    @patient_note = @patient.patient_notes.build
   end
 
   def new

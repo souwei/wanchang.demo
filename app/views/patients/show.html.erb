@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
 <h2>Patient Data</h2>
-<%= @patient_visits.count %>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item active">
     <a class="nav-link active" id="info-tab" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="true">Patient Information</a>
@@ -111,57 +110,45 @@
   </div>
 
   <div class="tab-pane" id="visit" role="tabpanel" aria-labelledby="visit-tab">
-    visit
+    Visits
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Visit Date</th>
+          <th scope="col">Doctor Notes</th>
+        </tr>
+      </thead>
+    <tbody>
+      <% @patient_visits.each do |visit| %>
+      <tr>
+        <td><%= visit.visit_date %></td>
+        <td><%= visit.notes %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
   </div>
+
+
   <div class="tab-pane" id="appt" role="tabpanel" aria-labelledby="appt-tab">
-    new new
-    <%= simple_form_for(@patient, html: { class: 'form-inline' })do |f| %>
-    <div class="panel panel-default">
-    <div class="panel-heading form-divider">Personal Details</div>
-    <div class="panel-body">
-      <div class="row">
-        <div class="col-md-6"> <%= f.input :given_name %> </div>
-        <div class="col-md-6"> <%= f.input :surname %> </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6"> <%= f.input :date_of_birth,
-                                           :as => :string,
-                                           :placeholder => "YYYY-MM-DD" %>
+    <%= simple_form_for(@patient_note)do |f| %>
+      <div class="panel panel-default">
+        <div class="panel-heading form-divider">Appointment Information</div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-2">
+                <%= f.input :visit_date , :as => :string , :input_html => { :value => Date.today }%>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12"> <%= f.input :notes , :input_html => {:rows => 10} %> </div>
+          </div>
+          <%= f.input :patient_id, :as => :hidden, :input_html => { :value => @patient.id } %>
+          <%= f.button :submit, "Save Appointment Details", class: 'btn btn-success' %>
         </div>
-        <div class="col-md-6"> <%= f.input :place_of_birth %> </div>
       </div>
-      <div class="row">
-        <div class="col-md-6"> <%= f.input :gender,
-                                           :collection => ["Male","Female","Unspecified"] %> </div>
-        <div class="col-md-6"> <%= f.input :occupation %> </div>
-      </div>
-    </div>
-    <div class="panel-heading form-divider">Contact Details</div>
-    <div class="panel-body">
-      <div class="row">
-        <div class="col-md-6"> <%= f.input :home_address %> </div>
-        <div class="col-md-6"> <%= f.input :contact_number %> </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6"> <%= f.input :emergency_contact_name %> </div>
-        <div class="col-md-6"> <%= f.input :emergency_contact_number %> </div>
-      </div>
-    </div>
-    <div class="panel-heading form-divider">Medical Condition</div>
-    <div class="panel-body">
-      <%= f.input :present_complaint %>
-      <%= f.input :past_history %>
-      <%= f.input :current_medication %>
-      <%= f.input :family_history %>
-      <%= f.input :smoking_history %>
-      <%= f.input :allergies %>
-      <%= f.button :submit, class: 'btn btn-success' %>
-    </div>
-
-    </div>
-  <% end %>
+    <% end %>
   </div>
-
 </div>
 
 
