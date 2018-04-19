@@ -11,9 +11,10 @@ class PatientsController < ApplicationController
   # GET /patients/1
   # GET /patients/1.json
   def show
+    @patient_visits = @patient.patient_notes.all
+    @patient_note = PatientNote.new
   end
 
-  # GET /patients/new
   def new
     @patient = Patient.new
   end

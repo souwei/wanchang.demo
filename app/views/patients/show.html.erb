@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h2>Patient Data</h2>
+<%= @patient_visits.count %>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item active">
     <a class="nav-link active" id="info-tab" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="true">Patient Information</a>
@@ -7,14 +8,18 @@
   <li class="nav-item">
     <a class="nav-link" id="visit-tab" data-toggle="tab" href="#visit" role="tab" aria-controls="visit" aria-selected="false">Appointment Visit History</a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" id="appt-tab" data-toggle="tab" href="#appt" role="tab" aria-controls="appt" aria-selected="false">New Appointment</a>
+  </li>
+  <%= link_to 'Edit Patient Detail', edit_patient_path(@patient) , class: "btn btn-default pull-right"%>
 </ul>
+
 <br>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade active in" id="info" role="tabpanel" aria-labelledby="home-tab">
     <form>
       <div class="panel-heading form-divider">Personal Details</div>
       <div class="panel-body">
-
       <div class="form-group row form-control-plaintext">
         <label for="given-name" class="col-md-3 col-form-label">Given Name</label>
         <div class="col-md-3">
@@ -105,9 +110,59 @@
     </form>
   </div>
 
-  <div class="tab-pane fade" id="visit" role="tabpanel" aria-labelledby="visit-tab">
+  <div class="tab-pane" id="visit" role="tabpanel" aria-labelledby="visit-tab">
+    visit
   </div>
+  <div class="tab-pane" id="appt" role="tabpanel" aria-labelledby="appt-tab">
+    new new
+    <%= simple_form_for(@patient, html: { class: 'form-inline' })do |f| %>
+    <div class="panel panel-default">
+    <div class="panel-heading form-divider">Personal Details</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-6"> <%= f.input :given_name %> </div>
+        <div class="col-md-6"> <%= f.input :surname %> </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6"> <%= f.input :date_of_birth,
+                                           :as => :string,
+                                           :placeholder => "YYYY-MM-DD" %>
+        </div>
+        <div class="col-md-6"> <%= f.input :place_of_birth %> </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6"> <%= f.input :gender,
+                                           :collection => ["Male","Female","Unspecified"] %> </div>
+        <div class="col-md-6"> <%= f.input :occupation %> </div>
+      </div>
+    </div>
+    <div class="panel-heading form-divider">Contact Details</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-6"> <%= f.input :home_address %> </div>
+        <div class="col-md-6"> <%= f.input :contact_number %> </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6"> <%= f.input :emergency_contact_name %> </div>
+        <div class="col-md-6"> <%= f.input :emergency_contact_number %> </div>
+      </div>
+    </div>
+    <div class="panel-heading form-divider">Medical Condition</div>
+    <div class="panel-body">
+      <%= f.input :present_complaint %>
+      <%= f.input :past_history %>
+      <%= f.input :current_medication %>
+      <%= f.input :family_history %>
+      <%= f.input :smoking_history %>
+      <%= f.input :allergies %>
+      <%= f.button :submit, class: 'btn btn-success' %>
+    </div>
+
+    </div>
+  <% end %>
+  </div>
+
 </div>
 
-<%= link_to 'Edit', edit_patient_path(@patient) %> |
+
 <%= link_to 'Back', patients_path %>
