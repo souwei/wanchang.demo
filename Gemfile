@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 gem 'simple_form'
 gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'master'
-gem 'bootstrap-sass', '~> 3.3.7'
+gem 'bootstrap', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'activeadmin'
 # Plus integrations with:
