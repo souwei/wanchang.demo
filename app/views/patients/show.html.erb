@@ -119,25 +119,19 @@
 
 
   <div class="tab-pane" id="visit" role="tabpanel" aria-labelledby="visit-tab">
-    Visits
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col">Visit Date</th>
-          <th scope="col">Doctor Notes</th>
-        </tr>
-      </thead>
-    <tbody>
-      <% @patient_visits.each do |visit| %>
-      <tr>
-        <td><%= visit.visit_date %></td>
-        <td><%= visit.notes %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-  </div>
+    <div class="col-md-12">
+      <div class="card mb-3">
+        <div class="card-header bg-dark text-white">
+          Visit 1 - 19 April 2018
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        </div>
+      </div>
+    </div>
 
+  </div>
 
   <div class="tab-pane" id="appt" role="tabpanel" aria-labelledby="appt-tab">
     <%= simple_form_for(@patient_note, :html => { class: "col-md-12"})do |f| %>
