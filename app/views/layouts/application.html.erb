@@ -9,6 +9,15 @@
   </head>
 
   <body>
+    <nav class="navbar sticky-top navbar-light bg-light">
+      <a class="navbar-brand" href="#">Wan Chang Chinese Herbalist</a>
+      <div class="input-group col-md-4">
+        <input class="form-control" name="name" type="text" placeholder="Search for Patient name.." />
+        <span class="input-group-append">
+          <div class="input-group-text bg-transparent"><i class="fa fa-search"></i></div>
+        </span>
+      </div>
+    </nav>
     <div class="container-fluid">
       <%= yield %>
     </div>

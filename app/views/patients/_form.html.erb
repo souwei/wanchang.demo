@@ -56,7 +56,13 @@
     <%= f.input :family_history %>
     <%= f.input :smoking_history %>
     <%= f.input :allergies %>
-    <%= f.button :submit, class: 'btn btn-success' %>
+    <%= button_tag type: 'submit', class: "btn btn-success" do %>
+        <i class="fa fa-check fa-fw" aria-hidden="true"></i><span>Submit</span>
+    <% end %>
+    <%= link_to :back , class: "btn btn-secondary" do %>
+      <i class="fa fa-times fa-fw" aria-hidden="true"></i><span>Cancel </span>
+    <% end %>
+
   </div>
 
   </div>

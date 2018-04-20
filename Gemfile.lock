@@ -121,6 +121,8 @@ GEM
     erubi (1.7.1)
     execjs (2.7.0)
     ffi (1.9.23)
+    font-awesome-sass (5.0.9)
+      sass (>= 3.2)
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.6.0)
@@ -276,6 +278,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   draper
+  font-awesome-sass (~> 5.0.9)
   jbuilder (~> 2.5)
   jquery-rails
   kaminari!
