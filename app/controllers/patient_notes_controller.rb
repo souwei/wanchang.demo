@@ -7,16 +7,18 @@ class PatientNotesController < ApplicationController
   def create
 
     @patient_note = PatientNote.new(patient_note_params)
-    byebug
-    # respond_to do |format|
-    #   if @patient.save
-    #     format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
-    #     format.json { render :show, status: :created, location: @patient }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @patient.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    @patient = Patient.find(params[:patient_note][:patient_id])
+
+    respond_to do |format|
+      if @patient_note.save
+        format.html { redirect_to @patient ,notice: 'Appointment Data was succesfully saved.' }
+        format.json { render :show, status: :created, location: @patient }
+      else
+        byebug
+        format.html { redirect_to @patient }
+        format.json { render json: @patient_note.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
 
