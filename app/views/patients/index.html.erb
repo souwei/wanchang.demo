@@ -1,14 +1,9 @@
 <p id="notice"><%= notice %></p>
-<h1>Patients</h1>
+ <div class="col-md-12">
 
-<div class="row">
-     <div class="col-md-12">
-       <%= link_to new_patient_path, class: "btn btn-primary float-right" do %>
-         <i class="fas fa-user-plus"></i> New Patient
-       <% end %>
-     </div>
-</div>
+</nav>
 
+ </div>
 <br>
 <div class="col-md-12">
   <table class="table table-hover">
@@ -21,7 +16,9 @@
         <th scope="col">Gender</th>
         <th scope="col">Occupation</th>
         <th scope="col">Contact number</th>
-        <th colspan="1"></th>
+        <th scope="col"><%= link_to new_patient_path, class: "btn btn-primary float-right" do %>
+          <i class="fas fa-user-plus"></i> New Patient
+        <% end %></th>
       </tr>
     </thead>
 
