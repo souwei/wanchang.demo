@@ -122,17 +122,19 @@
   </div>
 
   <div class="tab-pane" id="visit" role="tabpanel" aria-labelledby="visit-tab">
-    <div class="col-md-12">
-      <div class="card mb-3">
-        <div class="card-header bg-dark text-white">
-          Visit 1 - 19 April 2018
-        </div>
-        <div class="card-body">
-          <h5 class="card-title"></h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <% @patient_visits.each do |visit| %>
+      <div class="col-md-12">
+        <div class="card mb-3">
+          <div class="card-header bg-dark text-white">
+            Visit 1 - <%= visit.visit_date %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text"> <%= visit.notes %> </p>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
   </div>
 
   <div class="tab-pane" id="appt" role="tabpanel" aria-labelledby="appt-tab">
@@ -148,7 +150,7 @@
           <div class="row">
             <div class="col-md-12"> <%= f.input :notes , :input_html => {:rows => 10} %> </div>
           </div>
-          <%= f.input :patient_id, :as => :hidden, :input_html => { :value => @patient.id } %>
+          <%= f.input :patient_id, :as => :hidden,  :value => @patient.id  %>
           <%= f.button :submit, "Save Appointment Details", class: 'btn btn-success' %>
         </div>
       </div>
