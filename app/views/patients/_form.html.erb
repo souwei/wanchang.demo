@@ -18,8 +18,12 @@
   <% end %>
   <%= simple_form_for(@patient, html: { class: 'form-inline' })do |f| %>
   <div class="card">
-  <div class="card-header form-divider">Personal Details</div>
-  <div class="card-body">
+  <div class="card-header form-divider" data-toggle="collapse" data-target="#collapse1" aria-expanded="true">
+    <i class="fas fa-minus fa-fw mr-2"></i>
+    <i class="fas fa-plus fa-fw mr-2"></i>
+    Personal Details
+  </div>
+  <div class="card-body collapse show" id="collapse1">
     <div class="row">
       <div class="col-md-6"> <%= f.input :given_name %> </div>
       <div class="col-md-6"> <%= f.input :surname %> </div>
@@ -37,8 +41,12 @@
       <div class="col-md-6"> <%= f.input :occupation %> </div>
     </div>
   </div>
-  <div class="card-header form-divider">Contact Details</div>
-  <div class="card-body">
+  <div class="card-header form-divider" data-toggle="collapse" data-target="#collapse2" aria-expanded="true">
+    <i class="fas fa-minus fa-fw mr-2"></i>
+    <i class="fas fa-plus fa-fw mr-2"></i>
+    Contact Details
+  </div>
+  <div class="card-body collapse show" id="collapse2">
     <div class="row">
       <div class="col-md-6"> <%= f.input :home_address %> </div>
       <div class="col-md-6"> <%= f.input :contact_number %> </div>
@@ -48,8 +56,12 @@
       <div class="col-md-6"> <%= f.input :emergency_contact_number %> </div>
     </div>
   </div>
-  <div class="card-header form-divider">Medical Condition</div>
-  <div class="card-body">
+  <div class="card-header form-divider" data-toggle="collapse" data-target="#collapse3" aria-expanded="true">
+    <i class="fas fa-minus fa-fw mr-2"></i>
+    <i class="fas fa-plus fa-fw mr-2"></i>
+    Medical Condition
+  </div>
+  <div class="card-body collapse show" id="collapse3">
     <%= f.input :present_complaint %>
     <%= f.input :past_history %>
     <%= f.input :current_medication %>

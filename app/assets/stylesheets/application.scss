@@ -15,6 +15,13 @@
 @import "font-awesome";
 @import "bootstrap";
 
+div[aria-expanded=true] .fa-plus {
+   display: none;
+}
+div[aria-expanded=false] .fa-minus {
+   display: none;
+}
+
  .form-divider {
    background-color: #343a40!important;
    border-color: #343a40!important;

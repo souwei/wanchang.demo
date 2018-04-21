@@ -8,16 +8,21 @@
     <a class="nav-link" id="visit-tab" data-toggle="tab" href="#visit" role="tab" aria-controls="visit" aria-selected="false"><i class="far fa-clock fa-fw"></i><span class="ml-1">Appointment Visit History</span></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="appt-tab" data-toggle="tab" href="#appt" role="tab" aria-controls="appt" aria-selected="false"><i class="fas fa-plus fa-fw"></i><span class="ml-1">New Appointment</span></a>
+    <a class="nav-link" id="appt-tab" data-toggle="tab" href="#appt" role="tab" aria-controls="appt" aria-selected="false"><i class="fas fa-plus-circle fa-fw"></i><span class="ml-1">New Appointment</span></a>
   </li>
 </ul>
 <br>
+
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade active in show" id="info" role="tabpanel" aria-labelledby="home-tab">
     <form class="col-md-12">
       <div class="card">
-        <div class="card-header form-divider">Personal Details</div>
-          <div class="card-body">
+        <div class="card-header form-divider" data-toggle="collapse" data-target="#collapse1" aria-expanded="true">
+          <i class="fas fa-minus fa-fw mr-2"></i>
+          <i class="fas fa-plus fa-fw mr-2"></i>
+          Personal Details
+        </div>
+          <div class="card-body collapse show" id="collapse1">
             <div class="form-group row form-control-plaintext">
               <div class="form-group row mx-auto">
                 <div class="col-sm-6">
@@ -51,8 +56,12 @@
             </div>
         </div>
       </div>
-      <div class="card-header form-divider">Contact Details</div>
-      <div class="card-body">
+      <div class="card-header form-divider" data-toggle="collapse" data-target="#collapse2" aria-expanded="true">
+        <i class="fas fa-minus fa-fw mr-2"></i>
+        <i class="fas fa-plus fa-fw mr-2"></i>
+        Contact Details
+      </div>
+      <div class="card-body collapse show" id="collapse2">
         <div class="form-group row form-control-plaintext">
           <div class="form-group row mx-auto">
             <div class="col-sm-6">
@@ -77,8 +86,12 @@
         </div>
       </div>
 
-      <div class="card-header form-divider">Medical Condition</div>
-      <div class="card-body">
+      <div class="card-header form-divider" data-toggle="collapse" data-target="#collapse3" aria-expanded="true">
+        <i class="fas fa-minus fa-fw mr-2"></i>
+        <i class="fas fa-plus fa-fw mr-2"></i>
+        Medical Condition
+      </div>
+      <div class="card-body collapse show" id="collapse3">
         <div class="form-group row form-control-plaintext">
           <div class="form-group row mx-auto">
             <div class="col-sm-6">
