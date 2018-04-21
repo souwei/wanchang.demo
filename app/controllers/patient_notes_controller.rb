@@ -5,18 +5,16 @@ class PatientNotesController < ApplicationController
 
   #POST /patient_notes/1
   def create
-
     @patient_note = PatientNote.new(patient_note_params)
     @patient = Patient.find(params[:patient_note][:patient_id])
-
     respond_to do |format|
       if @patient_note.save
         format.html { redirect_to @patient ,notice: 'Appointment Data was succesfully saved.' }
         format.json { render :show, status: :created, location: @patient }
       else
-        byebug
         format.html { redirect_to @patient }
         format.json { render json: @patient_note.errors, status: :unprocessable_entity }
+        format.js { }
       end
     end
   end

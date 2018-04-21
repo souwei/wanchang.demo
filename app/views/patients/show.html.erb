@@ -138,7 +138,7 @@
   </div>
 
   <div class="tab-pane" id="appt" role="tabpanel" aria-labelledby="appt-tab">
-    <%= simple_form_for([@patient, @patient_note], :html => { class: "col-md-12"})do |f| %>
+    <%= simple_form_for([@patient, @patient_note], :html => { class: "col-md-12"}, :remote => true )do |f| %>
       <div class="card">
         <div class="card-header form-divider">Appointment Information</div>
         <div class="card-body">
