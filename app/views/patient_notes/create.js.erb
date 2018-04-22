@@ -1,5 +1,13 @@
 <% if @patient_note.errors.any? %>
-console.log("<%= sanitize(@patient_note.errors.full_messages.first)%>");
-<% else %>
-console.log("saved successfully");
+showErrorMessage("<%= @patient_note.errors.full_messages.join(';') %>");
 <% end %>
+
+function showErrorMessage(error) {
+    var errorsPane = $('#error-case');
+    var errorTitle = $('<span />')
+      .html("An Error has occured, please fix the following:")
+      .appendTo(errorsPane);
+    var errorsList = $('<ul />').appendTo(errorsPane);
+    errorsList.append('<li>' + error + '</li>');
+    errorsPane.show();
+  }
