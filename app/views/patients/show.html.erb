@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+<p id="notice" class="alert alert-success alert-dismissible">
+  <%= notice %>
+</p>
+<% end %>
 <h1><%= @patient.given_name %> <%= @patient.surname %></h1>
 <ul class="nav nav-tabs col-md-10" id="myTab" role="tablist">
   <li class="nav-item active">
@@ -139,7 +143,8 @@
       <div class="col-md-12">
         <div class="card mb-3">
           <div class="card-header bg-dark text-white">
-            Visit 1 - <%= visit.visit_date %>
+            <%= "[ #{(Date.today - visit.visit_date).to_i} Days Ago ] . " if visit.visit_date %>
+            <%= visit.visit_date.strftime('%a %d %b %Y')  if visit.visit_date %>
           </div>
           <div class="card-body">
             <h5 class="card-title"></h5>

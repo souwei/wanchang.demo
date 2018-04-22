@@ -11,7 +11,7 @@ class PatientsController < ApplicationController
   # GET /patients/1
   # GET /patients/1.json
   def show
-    @patient_visits = @patient.patient_notes.all
+    @patient_visits = @patient.patient_notes.all.order(visit_date: :desc)
     @patient_note = @patient.patient_notes.build
   end
 
