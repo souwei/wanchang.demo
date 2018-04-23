@@ -8,6 +8,11 @@ Bundler.require(*Rails.groups)
 
 module PatientApp
   class Application < Rails::Application
+    # Replace with a lambda or method name defined in ApplicationController
+    # to implement access control for the Flipflop dashboard.
+    config.flipflop.dashboard_access_filter = -> { head :forbidden }
+
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Flipflop::Engine => "/flipflop"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :patients do

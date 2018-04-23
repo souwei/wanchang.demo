@@ -15,6 +15,14 @@
 @import "font-awesome";
 @import "bootstrap";
 
+.chinese-text {
+  font-size: 1.5em;
+}
+
+.chinese-text-sm {
+  font-size: 1em;
+}
+
 div[aria-expanded=true] .fa-plus {
    display: none;
 }
