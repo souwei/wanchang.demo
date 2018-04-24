@@ -98,19 +98,27 @@
       <div class="card-body collapse show" id="collapse3">
         <div class="form-group row form-control-plaintext">
           <div class="form-group row mx-auto">
-            <div class="col-sm-6">
+            <div class="col-sm-12">
+              <label for="allergies">Allergies</label>
+              <input type="text" readonly class="form-control" value="<%= @patient.allergies %>">
+            </div>
+          </div>
+          <div class="form-group row mx-auto">
+            <div class="col-sm-12">
+              <label for="smoking-history">Smoking / Alcohol History</label>
+              <input type="text" readonly class="form-control" value="  <%= @patient.smoking_history %>">
+            </div>
+          </div>
+          <div class="form-group row mx-auto">
+            <div class="col-sm-12">
               <label for="present-complaint">Present Complaint</label>
               <input type="text" readonly class="form-control" value="  <%= @patient.present_complaint %>">
-            </div>
-            <div class="col-sm-6">
-              <label for="past-history">Past History</label>
-              <input type="text" readonly class="form-control" value="<%= @patient.past_history %>">
             </div>
           </div>
           <div class="form-group row mx-auto">
             <div class="col-sm-6">
-              <label for="current-medication">Current Medication</label>
-              <input type="text" readonly class="form-control" value="  <%= @patient.current_medication %>">
+              <label for="past-history">Past History</label>
+              <input type="text" readonly class="form-control" value="<%= @patient.past_history %>">
             </div>
             <div class="col-sm-6">
               <label for="family-history">Family History</label>
@@ -118,13 +126,9 @@
             </div>
           </div>
           <div class="form-group row mx-auto">
-            <div class="col-sm-6">
-              <label for="smoking-history">Smoking History</label>
-              <input type="text" readonly class="form-control" value="  <%= @patient.smoking_history %>">
-            </div>
-            <div class="col-sm-6">
-              <label for="allergies">Allergies</label>
-              <input type="text" readonly class="form-control" value="<%= @patient.allergies %>">
+            <div class="col-sm-12">
+              <label for="current-medication">Current Medication</label>
+              <input type="text" readonly class="form-control" value="  <%= @patient.current_medication %>">
             </div>
           </div>
       </div>

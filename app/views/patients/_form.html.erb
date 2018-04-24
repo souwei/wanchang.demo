@@ -25,15 +25,15 @@
   </div>
   <div class="card-body collapse show" id="collapse1">
     <div class="row">
-      <div class="col-md-6"> <%= f.input :given_name %> </div>
+      <div class="col-md-6"> <%= f.input :given_name, :label => "Given Name"%> </div>
       <div class="col-md-6"> <%= f.input :surname %> </div>
     </div>
     <div class="row">
-      <div class="col-md-6"> <%= f.input :date_of_birth,
+      <div class="col-md-6"> <%= f.input :date_of_birth, :label => "Date of Birth",
                                          :as => :string,
                                          :placeholder => "YYYY-MM-DD" %>
       </div>
-      <div class="col-md-6"> <%= f.input :place_of_birth %> </div>
+      <div class="col-md-6"> <%= f.input :place_of_birth, :label => "Place of Birth"%> </div>
     </div>
     <div class="row">
       <div class="col-md-6"> <%= f.input :gender,
@@ -48,12 +48,12 @@
   </div>
   <div class="card-body collapse show" id="collapse2">
     <div class="row">
-      <div class="col-md-6"> <%= f.input :home_address %> </div>
-      <div class="col-md-6"> <%= f.input :contact_number %> </div>
+      <div class="col-md-6"> <%= f.input :home_address, :label => "Home Address"%> </div>
+      <div class="col-md-6"> <%= f.input :contact_number, :label => "Contact Number"%> </div>
     </div>
     <div class="row">
-      <div class="col-md-6"> <%= f.input :emergency_contact_name %> </div>
-      <div class="col-md-6"> <%= f.input :emergency_contact_number %> </div>
+      <div class="col-md-6"> <%= f.input :emergency_contact_name, :label => "Emergency Contact Name"%> </div>
+      <div class="col-md-6"> <%= f.input :emergency_contact_number, :label => "Emergency Contact Number"%> </div>
     </div>
   </div>
   <div class="card-header form-divider" data-toggle="collapse" data-target="#collapse3" aria-expanded="true">
@@ -62,12 +62,15 @@
     Medical Condition
   </div>
   <div class="card-body collapse show" id="collapse3">
-    <%= f.input :present_complaint %>
-    <%= f.input :past_history %>
-    <%= f.input :current_medication %>
-    <%= f.input :family_history %>
-    <%= f.input :smoking_history %>
     <%= f.input :allergies %>
+    <%= f.input :smoking_history, :label => "Smoking / Alcohol History" %>
+    <%= f.input :present_complaint, :label => "Present Complaint" %>
+    <div class="row">
+      <div class="col-md-6"><%= f.input :past_history, :label => "Past History", :as => :string %></div>
+      <div class="col-md-6"><%= f.input :family_history,
+                                        :label => "Family History"%></div>
+    </div>
+    <%= f.input :current_medication, :label => "Current Medication" %>
     <%= button_tag type: 'submit', class: "btn btn-success" do %>
         <i class="fa fa-check fa-fw" aria-hidden="true"></i><span>Submit</span>
     <% end %>
