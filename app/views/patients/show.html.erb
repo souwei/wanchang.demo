@@ -171,7 +171,7 @@
         <div class="card-header form-divider">Appointment Information</div>
         <div class="card-body">
           <div class="row">
-            <div id="error-case" class="col-md-12 alert alert-danger alert-dismissible" role="alert" style="display:none">
+            <div id="error-case" class="col-md-12 alert alert-danger" role="alert" style="display:none">
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -183,7 +183,37 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12"> <%= f.input :notes , :input_html => {:rows => 10} %> </div>
+            <div class="col-md-6">
+                <%= f.input :patient_complaint, :label => "Patient Complaint"%>
+            </div>
+            <div class="col-md-6">
+                <%= f.input :signs_symptoms , :label => "Signs and Symptoms"%>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+                <%= f.input :tongue_examination , :label => "Tongue Examination"%>
+            </div>
+            <div class="col-md-6">
+                <%= f.input :pulse_examination, :label => "Pulse Examination"%>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+                <%= f.input :diagnosis %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+                <%= f.input :herbal_course , :label => "Herbal Treatment"%>
+            </div>
+            <div class="col-md-6">
+                <%= f.input :acupuncture_course , :label => "Acupuncture Course"%>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12"> <%= f.input :notes , :label => "Follow Up Notes",
+                                                :input_html => {:rows => 10} %> </div>
           </div>
           <%= f.input :patient_id, :as => :hidden, :input_html => { :value => @patient.id } %>
           <%= f.button :submit, "Save Appointment Details", class: 'btn btn-success' %>
