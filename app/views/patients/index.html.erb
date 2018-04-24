@@ -85,6 +85,10 @@
     No Records found for .. "<%= params[:search] %> "
     <% else %>
     No Records Found ..
+    Start adding some records now -->
+    <%= link_to new_patient_path, class: "btn btn-primary" do %>
+      <i class="fas fa-user-plus"></i> New Patient
+    <% end %>
     <% end %>
   </div>
 <% end %>
