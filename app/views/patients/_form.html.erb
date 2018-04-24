@@ -40,6 +40,10 @@
                                          :collection => ["Male","Female","Unspecified"] %> </div>
       <div class="col-md-6"> <%= f.input :occupation %> </div>
     </div>
+    <div class="row">
+      <div class="col-md-6"> <%= f.input :health_insurance, :label => "Health Insurance Cover",
+                                         :collection => ["HBF","Female","Unspecified"] %> </div>
+    </div>
   </div>
   <div class="card-header form-divider" data-toggle="collapse" data-target="#collapse2" aria-expanded="true">
     <i class="fas fa-minus fa-fw mr-2"></i>
