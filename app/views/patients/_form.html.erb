@@ -30,8 +30,10 @@
     </div>
     <div class="row">
       <div class="col-md-6"> <%= f.input :date_of_birth, :label => "Date of Birth",
-                                         :as => :string,
-                                         :placeholder => "YYYY-MM-DD" %>
+                                         start_year: Time.now.year - 90,
+                                         end_year: Time.now.year - 8,
+                                         order: [:day, :month, :year]%>
+
       </div>
       <div class="col-md-6"> <%= f.input :place_of_birth, :label => "Place of Birth"%> </div>
     </div>
@@ -41,8 +43,7 @@
       <div class="col-md-6"> <%= f.input :occupation %> </div>
     </div>
     <div class="row">
-      <div class="col-md-6"> <%= f.input :health_insurance, :label => "Health Insurance Cover",
-                                         :collection => ["HBF","Female","Unspecified"] %> </div>
+      <div class="col-md-6"> <%= f.input :health_insurance, :label => "Health Insurance Cover"%> </div>
     </div>
   </div>
   <div class="card-header form-divider" data-toggle="collapse" data-target="#collapse2" aria-expanded="true">
