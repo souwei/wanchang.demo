@@ -179,7 +179,7 @@
           </div>
           <div class="row">
             <div class="col-md-2">
-                <%= f.input :visit_date , :as => :string , :input_html => { :value => Date.today }%>
+                <%= f.input :visit_date , :as => :string , :input_html => { :value => (Date.today).try(:strftime,"%d/%m/%Y") }%>
             </div>
           </div>
           <div class="row">

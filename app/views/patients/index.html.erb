@@ -41,7 +41,7 @@
         <tr>
           <td><%= patient.given_name %></td>
           <td><%= patient.surname %></td>
-          <td><%= patient.date_of_birth %></td>
+          <td><%= (patient.date_of_birth).try(:strftime,"%d/%m/%Y") %></td>
           <td><%= patient.place_of_birth %></td>
           <td><%= patient.gender %></td>
           <td><%= patient.occupation %></td>
