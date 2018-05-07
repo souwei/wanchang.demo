@@ -41,7 +41,7 @@
               <div class="form-group row mx-auto">
                 <div class="col-sm-6">
                   <label for="date-of-birth">Date of Birth</label>
-                  <input type="text" readonly class="form-control" value="  <%= @patient.date_of_birth %>">
+                  <input type="text" readonly class="form-control" value="  <%= @patient.date_of_birth.try(:strftime,"%d/%m/%Y") %>">
                 </div>
               <div class="col-sm-6">
                 <label for="place-of-birth">Place of Birth</label>

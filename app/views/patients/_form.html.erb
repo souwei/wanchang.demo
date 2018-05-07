@@ -29,10 +29,10 @@
       <div class="col-md-6"> <%= f.input :surname %> </div>
     </div>
     <div class="row">
-      <div class="col-md-6"> <%= f.input :date_of_birth, :label => "Date of Birth",
-                                         start_year: Time.now.year - 90,
-                                         end_year: Time.now.year - 8,
-                                         order: [:day, :month, :year]%>
+      <div class="col-md-6"> <%= f.input :date_of_birth,
+                                         :as => :string,
+                                         placeholder: 'DD/MM/YYYY',
+                                         value: f.object.try(:strftime,"%d/%m/%Y")%>
 
       </div>
       <div class="col-md-6"> <%= f.input :place_of_birth, :label => "Place of Birth"%> </div>
