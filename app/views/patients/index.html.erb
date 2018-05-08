@@ -24,11 +24,10 @@
       <tr class="bg-dark text-white">
         <th scope="col">Given name</th>
         <th scope="col">Surname</th>
-        <th scope="col">Date of birth</th>
-        <th scope="col">Place of birth</th>
+        <th scope="col">DOB</th>
+        <th scope="col">Age</th>
         <th scope="col">Gender</th>
-        <th scope="col">Occupation</th>
-        <th scope="col">Contact number</th>
+        <th scope="col">Initial Complaint</th>
         <th scope="col"><%= link_to new_patient_path, class: "btn btn-primary float-right" do %>
           <i class="fas fa-user-plus"></i> New Patient
         <% end %></th>
@@ -42,10 +41,9 @@
           <td><%= patient.given_name %></td>
           <td><%= patient.surname %></td>
           <td><%= (patient.date_of_birth).try(:strftime,"%d/%m/%Y") %></td>
-          <td><%= patient.place_of_birth %></td>
+          <td><%= ((Time.zone.now - patient.date_of_birth.to_time) / 1.year.seconds).floor %> yrs</td>
           <td><%= patient.gender %></td>
-          <td><%= patient.occupation %></td>
-          <td><%= patient.contact_number %></td>
+          <td><%= patient.present_complaint %></td>
           <td>
             <% if Flipflop.chinese_language? %>
             <div class="btn-group">

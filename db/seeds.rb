@@ -21,6 +21,7 @@ Patient.destroy_all
     gender:         ["Male","Female","Unspecified"].sample,
     place_of_birth: Faker::Pokemon.location,
     date_of_birth:  random_date_of_birth,
-    contact_number: '12345678'
+    contact_number: '12345678',
+    present_complaint: Faker::Kpop.iii_groups
   )
 end

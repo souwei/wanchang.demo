@@ -69,7 +69,9 @@
   <div class="card-body collapse show" id="collapse3">
     <%= f.input :allergies %>
     <%= f.input :smoking_history, :label => "Smoking / Alcohol History" %>
-    <%= f.input :present_complaint, :label => "Present Complaint" %>
+    <%= f.input :present_complaint,
+                :label => "Present Complaint",
+                placeholder: "Brief reason for visit - e.g. stomach ache, fever, acupunture etc."%>
     <div class="row">
       <div class="col-md-6"><%= f.input :past_history, :label => "Past History", :as => :string %></div>
       <div class="col-md-6"><%= f.input :family_history,
