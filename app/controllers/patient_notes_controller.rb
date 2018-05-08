@@ -2,10 +2,11 @@ class PatientNotesController < ApplicationController
   def index
   end
 
-
   #POST /patient_notes/1
   def create
+    params[:patient_note][:acupuncture_course] = params[:patient_note][:acupuncture_course].split(',')
     @patient_note = PatientNote.new(patient_note_params)
+
     @patient = Patient.find(params[:patient_note][:patient_id])
     respond_to do |format|
       if @patient_note.save
@@ -19,9 +20,8 @@ class PatientNotesController < ApplicationController
     end
   end
 
-
   private
   def patient_note_params
-    params.require(:patient_note).permit(:visit_date, :tongue_examination, :pulse_examination, :herbal_course, :acupuncture_course, :diagnosis, :notes,:patient_id)
+    params.require(:patient_note).permit(:visit_date, :tongue_examination, :pulse_examination, :herbal_course, :diagnosis, :notes,:patient_id, :acupuncture_course => [])
   end
 end

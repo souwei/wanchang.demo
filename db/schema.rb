@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180424112742) do
+ActiveRecord::Schema.define(version: 20180508130150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20180424112742) do
     t.text "tongue_examination"
     t.text "pulse_examination"
     t.text "herbal_course"
-    t.text "acupuncture_course"
+    t.string "acupuncture_course", array: true
     t.text "diagnosis"
     t.text "notes"
     t.datetime "created_at", null: false
