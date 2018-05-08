@@ -1,0 +1,114 @@
+<span id="med-history-section-2">
+  <div class="form-group">
+    <label>Do you have any allergies?</label>
+    <input type = "radio"
+           name = "allergies"
+           data-q = "allergies"
+           value = "yes"/>
+    <label for = "sizeSmall">Yes</label>
+    <input type = "radio"
+           name = "allergies"
+           data-q = "allergies"
+           checked
+           value = "no" />
+    <label for = "sizeSmall">No</label>
+    <div id="allergies" class="panel-collapse collapse">
+      <div class="panel-body">
+        <input class="form-control string optional" placeholder="Please state your allergies" type="text" name="patient[allergies]" id="patient_allergies">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Do you have any skin problems?</label>
+    <input type = "radio"
+           name = "skin"
+           data-q = "skin"
+           value = "yes"/>
+    <label for = "sizeSmall">Yes</label>
+    <input type = "radio"
+           name = "skin"
+           data-q = "skin"
+           checked
+           value = "no" />
+    <label for = "sizeSmall">No</label>
+    <br/>
+    <div id="skin" class="panel-collapse collapse">
+      <div class="panel-body">
+        <input class="form-control string optional" placeholder="Please describe" type="text" name="patient[allergies]" id="patient_allergies">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Do you have any heart-related conditions?</label>
+    <input type = "radio"
+           name = "heart"
+           data-q = "heart"
+           value = "yes"/>
+    <label for = "sizeSmall">Yes</label>
+    <input type = "radio"
+           name = "heart"
+           data-q = "heart"
+           checked
+           value = "no" />
+    <label for = "sizeSmall">No</label>
+    <br/>
+    <div id="heart" class="panel-collapse collapse">
+      <div class="panel-body">
+        <input class="form-control string optional" placeholder="Please describe" type="text" name="patient[allergies]" id="patient_allergies">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Do you have any brain-related injuries?</label>
+    <input type = "radio"
+           name = "brain"
+           data-q = "brain"
+           value = "yes"/>
+    <label for = "sizeSmall">Yes</label>
+    <input type = "radio"
+           name = "brain"
+           data-q = "brain"
+           checked
+           value = "no" />
+    <label for = "sizeSmall">No</label>
+    <br/>
+    <div id="brain" class="panel-collapse collapse">
+      <div class="panel-body">
+        <input class="form-control string optional" placeholder="Please describe" type="text" name="patient[allergies]" id="patient_allergies">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Are you a smoker?</label>
+    <input type = "radio"
+           name = "smoker"
+           value = "smoker"/>
+    <label for = "yes">Yes</label>
+    <input type = "radio"
+           name = "smoker"
+           checked
+           value = "non-smoker" />
+    <label for = "no">No</label>
+  </div>
+</span>
+
+<script>
+document.addEventListener("turbolinks:load",() => {
+  document.getElementById("med-history-section-2").addEventListener("click",(e) => {
+    var target = e.target;
+    if(target.type === "radio"){
+      if(target.value && target.name){
+        if(target.value === "yes"){
+          $('#'+target.name).removeClass("panel-collapse collapse");
+        }else {
+          $('#'+target.name).addClass("panel-collapse collapse");
+        }
+      }
+    }
+  })
+});
+</script>

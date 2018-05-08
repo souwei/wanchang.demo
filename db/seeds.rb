@@ -9,7 +9,7 @@
 require 'faker'
 
 def random_date_of_birth
-  Date.today-rand(100000)
+  Date.today-rand(70000)
 end
 
 Patient.destroy_all
@@ -18,7 +18,7 @@ Patient.destroy_all
     given_name:     Faker::Friends.character,
     surname:        Faker::HarryPotter.house,
     occupation:     Faker::Job.title,
-    gender:         ["Male","Female","Unspecified"].sample,
+    gender:         ["M","F"].sample,
     place_of_birth: Faker::Pokemon.location,
     date_of_birth:  random_date_of_birth,
     contact_number: '12345678',
