@@ -166,60 +166,7 @@
   </div>
 
   <div class="tab-pane" id="appt" role="tabpanel" aria-labelledby="appt-tab">
-    <%= simple_form_for([@patient, @patient_note], :html => { class: "col-md-12"}, :remote => true )do |f| %>
-      <div class="card">
-        <div class="card-header form-divider">Appointment Information</div>
-        <div class="card-body">
-          <div class="row">
-            <div id="error-case" class="col-md-12 alert alert-danger" role="alert" style="display:none">
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-2">
-                <%= f.input :visit_date , :as => :string , :input_html => { :value => (Date.today).try(:strftime,"%d/%m/%Y") }%>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-                <%= f.input :patient_complaint, :label => "Patient Complaint"%>
-            </div>
-            <div class="col-md-6">
-                <%= f.input :signs_symptoms , :label => "Signs and Symptoms"%>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-                <%= f.input :tongue_examination , :label => "Tongue Examination"%>
-            </div>
-            <div class="col-md-6">
-                <%= f.input :pulse_examination, :label => "Pulse Examination"%>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-                <%= f.input :diagnosis %>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-                <%= f.input :herbal_course , :label => "Herbal Treatment"%>
-            </div>
-            <div class="col-md-6">
-                <%= f.input :acupuncture_course , multiple: true, :label => "Acupuncture Course"%>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12"> <%= f.input :notes , :label => "Follow Up Notes",
-                                                :input_html => {:rows => 10} %> </div>
-          </div>
-          <%= f.input :patient_id, :as => :hidden, :input_html => { :value => @patient.id } %>
-          <%= f.button :submit, "Save Appointment Details", class: 'btn btn-success' %>
-        </div>
-      </div>
-    <% end %>
+    <%= render partial: "appointment_form", locals: {patient: @patient, patient_note: @patient_note }%>
   </div>
   </div>
 </div>
