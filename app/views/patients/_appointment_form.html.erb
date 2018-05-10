@@ -36,13 +36,22 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <%= f.input :herbal_course , :label => "Herbal Treatment"%>
         </div>
-        <div class="col-md-6">
-            <%= f.input :acupuncture_course , multiple: true, :label => "Acupuncture Course"%>
-        </div>
       </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group patient_note_acupuncture_course">
+            <button class="btn btn-success btn-acu">头痛</button>
+            <button class="btn btn-success btn-acu2">肩颈肘</button>
+            <label class="form-control-label string optional">Acupuncture Course</label>
+            <!-- <input class="form-control string optional" type="text" name="patient_note[acupuncture_course]" id="patient_note_acupuncture_course"> -->
+              <input id="my-element">
+          </div>
+              <!-- <%= f.input :acupuncture_course , multiple: true, :label => "Acupuncture Course"%> -->
+        </div>
+        </div>
       <div class="row">
         <div class="col-md-12"> <%= f.input :notes , :label => "Follow Up Notes",
                                             :input_html => {:rows => 10} %> </div>
@@ -52,3 +61,32 @@
     </div>
   </div>
 <% end %>
+<script>
+  $(document).on("turbolinks:load",function(){
+    var mySellect = sellect("#my-element", {
+    originList: ['百会 BAI HUI', '风池 FENG CHI', '大椎 DA ZHUI', '阳溪 YANG XI',
+                 '合谷 HE GU', '肩前 JIAN QIAN','肩髎 JIAN LIAO','肩髃 JIAN YU','曲池 QU CHI',
+                 '手三里 SHOU SHAN LI','承山 CHENG SHAN','阳陵泉 YANG LING QUAN'],
+    destinationList: [],
+  });
+
+  var acupunctureGroups = {
+    '头痛'  : ['百会 BAI HUI', '风池 FENG CHI', '大椎 DA ZHUI', '阳溪 YANG XI', '合谷 HE GU'],
+    '肩颈肘' : ['风池 FENG CHI','肩前 JIAN QIAN','肩髎 JIAN LIAO','肩髃 JIAN YU','曲池 QU CHI',
+   '手三里 SHOU SHAN LI','承山 CHENG SHAN','阳陵泉 YANG LING QUAN']
+  }
+
+    mySellect.init();
+
+    $(".btn-acu").on("click",function(e){
+      e.preventDefault();
+      console.log(mySellect.addToSelected(acupunctureGroups['头痛']));
+    });
+
+    $(".btn-acu2").on("click",function(e){
+      e.preventDefault();
+      console.log(mySellect.addToSelected(acupunctureGroups['肩颈肘']));
+    });
+
+  })
+</script>
